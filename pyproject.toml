@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-evaluation-framework"
+version = "0.1.0"
+description = "A modular LLM-as-a-Judge evaluation framework"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["pydantic>=2.6", "typer>=0.12"]
+
+[project.optional-dependencies]
+openai = ["openai>=1.30"]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+llm-eval = "llm_eval.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
