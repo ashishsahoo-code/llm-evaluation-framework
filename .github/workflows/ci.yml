@@ -12,4 +12,7 @@ jobs:
           python-version: "3.11"
       - run: pip install -e ".[dev]"
       - run: pytest
-      - run: ruff check src tests
+      - name: Check and auto-fix import formatting
+        run: ruff check --fix src tests
+      - name: Verify lint
+        run: ruff check src tests
