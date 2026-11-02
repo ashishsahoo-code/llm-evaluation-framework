@@ -1,6 +1,7 @@
-import json
 from pathlib import Path
+import json
 from llm_eval.schemas import EvaluationCase
+
 
 def load_jsonl(path: str | Path) -> list[EvaluationCase]:
     cases = []
