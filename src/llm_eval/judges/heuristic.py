@@ -1,6 +1,7 @@
 import re
 from llm_eval.schemas import EvaluationCase, DimensionScore
 
+
 def tokens(value: str) -> set[str]:
     return set(re.findall(r"[a-z0-9]+", value.lower()))
 
