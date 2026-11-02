@@ -1,7 +1,9 @@
 from collections import defaultdict
 from uuid import uuid4
+
 from llm_eval.judges.base import Judge
-from llm_eval.schemas import EvaluationCase, CaseEvaluation, EvaluationReport
+from llm_eval.schemas import CaseEvaluation, EvaluationCase, EvaluationReport
+
 
 class EvaluationRunner:
     def __init__(self, judge: Judge, pass_threshold: float = 0.70):
