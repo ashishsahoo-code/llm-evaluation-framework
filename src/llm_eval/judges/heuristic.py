@@ -1,12 +1,15 @@
 import re
-from llm_eval.schemas import EvaluationCase, DimensionScore
+
+from llm_eval.schemas import DimensionScore, EvaluationCase
 
 
 def tokens(value: str) -> set[str]:
     return set(re.findall(r"[a-z0-9]+", value.lower()))
 
+
 def ratio(numerator: int, denominator: int) -> float:
     return numerator / denominator if denominator else 0.0
+
 
 class HeuristicJudge:
     """Lexical-overlap baseline; not a semantic or benchmark-quality evaluator."""
