@@ -1,4 +1,5 @@
 import typer
+
 from llm_eval.dataset import load_jsonl
 from llm_eval.judges.heuristic import HeuristicJudge
 from llm_eval.reporting import write_json
@@ -6,6 +7,7 @@ from llm_eval.runner import EvaluationRunner
 
 
 app = typer.Typer(help="Evaluate LLM responses with pluggable judges.")
+
 
 @app.command()
 def run(
@@ -28,6 +30,7 @@ def run(
     report = EvaluationRunner(evaluator, threshold).run(load_jsonl(input))
     write_json(report, output)
     typer.echo(f"Evaluated {report.total_cases} cases; pass rate={report.pass_rate:.1%}; report={output}")
+
 
 if __name__ == "__main__":
     app()
