@@ -1,5 +1,6 @@
 from typing import Protocol
-from llm_eval.schemas import EvaluationCase, DimensionScore
+
+from llm_eval.schemas import DimensionScore, EvaluationCase
 
 
 class Judge(Protocol):
